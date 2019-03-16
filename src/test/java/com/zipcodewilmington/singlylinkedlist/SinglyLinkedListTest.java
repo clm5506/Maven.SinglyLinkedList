@@ -119,4 +119,122 @@ public class SinglyLinkedListTest {
         Assert.assertEquals(expected,actual);
     }
 
+    @Test
+    public void testSizeAfterRemoveNode(){
+
+        //Given
+        String headNodeData = "hi";
+        String secondNodeData = "bye";
+        String thirdNodeData = "moop";
+        SinglyLinkedList list = new SinglyLinkedList(headNodeData);
+        list.add(secondNodeData);
+        list.add(thirdNodeData);
+        int beforeSize = 3;
+        int actualBefore = list.getSize();
+        Assert.assertEquals(beforeSize,actualBefore);
+
+        int expected = 2;
+
+        //When
+        list.removeNode(2);
+        int actual = list.getSize();
+
+        //Then
+        Assert.assertEquals(expected,actual);
+    }
+
+    @Test
+    public void testFindAfterRemoveNode(){
+
+        //Given
+        String headNodeData = "hi";
+        String secondNodeData = "bye";
+        String thirdNodeData = "moop";
+        SinglyLinkedList list = new SinglyLinkedList(headNodeData);
+        list.add(secondNodeData);
+        list.add(thirdNodeData);
+        int beforeSize = 3;
+        int actualBefore = list.getSize();
+        Assert.assertEquals(beforeSize,actualBefore);
+
+        int expected = -1;
+
+        //When
+        list.removeNode(1);
+        int actual = list.find(secondNodeData);
+
+        //Then
+        Assert.assertEquals(expected,actual);
+    }
+
+    @Test
+    public void testContainsNegative(){
+
+        //Given
+        String headNodeData = "hi";
+        String secondNodeData = "bye";
+        String thirdNodeData = "moop";
+        SinglyLinkedList list = new SinglyLinkedList(headNodeData);
+        list.add(secondNodeData);
+        list.add(thirdNodeData);
+
+        int beforeSize = 3;
+        int actualBefore = list.getSize();
+        Assert.assertEquals(beforeSize,actualBefore);
+
+        boolean expected = false;
+
+        //When
+        list.removeNode(1);
+        boolean actual = list.contains(secondNodeData);
+
+        //Then
+        Assert.assertEquals(expected,actual);
+    }
+    @Test
+    public void testContainsPositive(){
+
+        //Given
+        String headNodeData = "hi";
+        String secondNodeData = "bye";
+        String thirdNodeData = "moop";
+        SinglyLinkedList list = new SinglyLinkedList(headNodeData);
+        list.add(secondNodeData);
+        list.add(thirdNodeData);
+
+        int beforeSize = 3;
+        int actualBefore = list.getSize();
+        Assert.assertEquals(beforeSize,actualBefore);
+
+        boolean expected = true;
+
+        //When
+        boolean actual = list.contains(secondNodeData);
+
+        //Then
+        Assert.assertEquals(expected,actual);
+    }
+
+    @Test
+    public void testCopyLinkedList(){
+
+        //Given
+        String headNodeData = "hi";
+        String secondNodeData = "bye";
+        String thirdNodeData = "moop";
+        SinglyLinkedList originalLinkedList = new SinglyLinkedList(headNodeData);
+        originalLinkedList.add(secondNodeData);
+        originalLinkedList.add(thirdNodeData);
+        int sizeOfOriginalList = originalLinkedList.getSize();
+        int counter = 0;
+
+        //When
+        SinglyLinkedList copy = originalLinkedList.copy();
+
+        //Then
+        while(counter < sizeOfOriginalList) {
+            Assert.assertEquals(originalLinkedList.getNode(counter).getData(), copy.getNode(counter).getData());
+            counter++;
+        }
+    }
 }

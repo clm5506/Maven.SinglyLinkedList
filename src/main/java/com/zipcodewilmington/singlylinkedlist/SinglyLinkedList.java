@@ -37,6 +37,7 @@ public class SinglyLinkedList {
     public Node getNode(int index){
         int counter = 0;
         Node temp = head;
+
         while(counter < index){
          temp = temp.getNextNode();
          counter++;
@@ -54,9 +55,32 @@ public class SinglyLinkedList {
             } else {
                 temp = temp.getNextNode();
                 counter++;
-             //   temp = temp.getNextNode();
             }
         }
         return -1;
+    }
+
+    public void removeNode(int index){
+        getNode(index-1).setNextNode(getNode(index+1));
+
+        size -= 1;
+    }
+
+    public boolean contains(String data){
+        if(find(data) == -1){
+            return false;
+        } else return true;
+    }
+
+    public SinglyLinkedList copy(){
+        SinglyLinkedList copyOfOriginalList = new SinglyLinkedList(this.head.getData());
+        int counter = 1;
+
+        while(counter < this.size){
+            copyOfOriginalList.add(this.getNode(counter).getData());
+            counter++;
+        }
+        return copyOfOriginalList;
+
     }
 }
