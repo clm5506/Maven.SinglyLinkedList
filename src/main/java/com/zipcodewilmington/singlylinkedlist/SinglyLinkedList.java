@@ -48,11 +48,11 @@ public class SinglyLinkedList {
         int counter = 0;
         Node temp = head;
 
-        while(temp.getNextNode() != null){
-            temp = temp.getNextNode();
+        while(counter < this.size){
             if(temp.getData().equals(data)) {
                 return counter;
             } else {
+                temp = temp.getNextNode();
                 counter++;
              //   temp = temp.getNextNode();
             }

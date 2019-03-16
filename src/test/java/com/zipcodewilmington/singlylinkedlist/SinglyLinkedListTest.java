@@ -101,6 +101,21 @@ public class SinglyLinkedListTest {
         //When
         int actual = list.find(thirdNodeData);
 
+        //Then
+        Assert.assertEquals(expected,actual);
+    }
+    @Test
+    public void testGetFindHead(){
+
+        //Given
+        String testData = "hi";
+        SinglyLinkedList list = new SinglyLinkedList(testData);
+        int expected = 0;
+
+        //When
+        int actual = list.find(testData);
+
+        //Then
         Assert.assertEquals(expected,actual);
     }
 
