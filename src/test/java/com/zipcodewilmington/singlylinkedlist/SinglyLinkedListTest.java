@@ -236,6 +236,7 @@ public class SinglyLinkedListTest {
             Assert.assertEquals(originalLinkedList.getNode(counter).getData(), copy.getNode(counter).getData());
             counter++;
         }
+<<<<<<< HEAD
 
 
     }
@@ -264,5 +265,7 @@ public class SinglyLinkedListTest {
         Assert.assertEquals(thirdNodeData, sorted.getNode(0).getData());
         Assert.assertEquals(secondNodeData, sorted.getNode(1).getData());
         Assert.assertEquals(headNodeData, sorted.getNode(2).getData());
+=======
+>>>>>>> e2b2d634d88094ee0d0521d834c25a13ccda996a
     }
 }
